@@ -8,7 +8,7 @@ authors:
 - Arieh Glazer
 
 requires:
-- core/1.2.4 : [Core,Class,Class.Extras,Cookie]
+- core/1.3 : [Core,Class,Class.Extras,Cookie]
 
 provides: [LocalStorage]
 
@@ -54,7 +54,7 @@ var LocalStorage = this.LocalStorage = new Class({
          if (window.localStorage){ //HTML5 storage
             if (this.options.debug) console.log('using localStorage')
             this.storage = window.localStorage;
-         }else if (Browser.Engine.trident){ //IE < 8
+         }else if (Browser.ie6 || Browser.ie7){ //IE < 8
                 if (this.options.debug) console.log('using behavior Storage');
             	this.storage = (function(){
                     var storage = document.createElement("span");
